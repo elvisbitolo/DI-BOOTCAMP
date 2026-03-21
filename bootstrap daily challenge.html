@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Landing Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- 🔝 NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">Brand</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+
+      <!-- Links -->
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            Contact <span class="badge bg-danger">3</span>
+          </a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Sign-in Form -->
+      <form class="d-flex">
+        <input class="form-control me-2" type="email" placeholder="Email">
+        <input class="form-control me-2" type="password" placeholder="Password">
+        <button class="btn btn-outline-light">Sign In</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer (because navbar is fixed) -->
+<div style="margin-top: 80px;"></div>
+
+<!-- 🧱 JUMBOTRON -->
+<div class="p-5 bg-light text-center">
+  <h1 class="mb-3">Heading</h1>
+  <h4 class="mb-3">Subheading</h4>
+  <a class="btn btn-primary" href="#">Learn more</a>
+</div>
+
+<!-- 📦 3 COLUMNS -->
+<div class="container mt-5">
+  <div class="row text-center">
+
+    <!-- Column 1 -->
+    <div class="col-md-4">
+      <h3>Column 1</h3>
+      <p>Some description text here.</p>
+      <button class="btn btn-secondary">
+        <i class="fas fa-eye"></i> View Details
+      </button>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="col-md-4">
+      <h3>Column 2</h3>
+      <p>Some description text here.</p>
+      <button class="btn btn-secondary">
+        <i class="fas fa-eye"></i> View Details
+      </button>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="col-md-4">
+      <h3>
+        Column 3 <span class="badge bg-success">New</span>
+      </h3>
+      <p>Some description text here.</p>
+      <button class="btn btn-secondary">
+        <i class="fas fa-eye"></i> View Details
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
