@@ -1,7 +1,4 @@
-# ==============================
-# Challenge 1: Multiples of a Number
-# ==============================
-
+# Challenge 1:
 number = int(input("Enter a number: "))
 length = int(input("Enter the length: "))
 
@@ -11,11 +8,7 @@ for i in range(1, length + 1):
     multiples.append(number * i)
 
 print("Multiples:", multiples)
-
-
-# ==============================
 # Challenge 2: Remove Consecutive Duplicate Letters
-# ==============================
 
 word = input("Enter a word: ")
 
