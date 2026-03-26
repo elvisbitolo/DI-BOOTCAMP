@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Exercise</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- 🧭 SIDEBAR -->
+    <div class="col-md-3 bg-dark text-white p-4 min-vh-100">
+      <h4>Sidebar</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- 📄 MAIN CONTENT -->
+    <div class="col-md-9 p-4">
+
+      <h2>Main Content</h2>
+
+      <!-- 🚨 ALERT -->
+      <div class="alert alert-danger">
+        This is a danger alert — something went wrong!
+      </div>
+
+      <!-- 💬 QUOTE -->
+      <blockquote class="blockquote">
+        <p>"Success is not final, failure is not fatal: it is the courage to continue that counts."</p>
+        <footer class="blockquote-footer">Winston Churchill</footer>
+      </blockquote>
+
+      <!-- 🔍 SEARCH FORM -->
+      <form class="d-flex my-4">
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <button class="btn btn-primary">Search</button>
+      </form>
+
+      <!-- 📊 TABLE -->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>John</td>
+            <td>Developer</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jane</td>
+            <td>Designer</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 🖼️ IMAGES -->
+      <div class="mt-4 d-flex gap-3 justify-content-center">
+
+        <img 
+          src="https://techwireasia.com/wp-content/uploads/2023/06/Developer-sitting-down-to-code-scaled.jpg"
+          class="img-thumbnail"
+          style="width: 220px; height: 150px; object-fit: cover;"
+        >
+
+        <img 
+          src="https://er6kyrw7tpi.exactdn.com/wp-content/uploads/2024/05/image-21.jpeg"
+          class="img-thumbnail"
+          style="width: 220px; height: 150px; object-fit: cover;"
+        >
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
