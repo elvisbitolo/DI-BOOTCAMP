@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Challenge: Mad Libs</title>
+ </head>
+ <body>
+
+    <h1>Mad Libs</h1>
+
+    <form id="libform">
+        <label for="noun">Noun:</label><input type="text" id="noun"><br>
+        <label for="adjective">Adjective:</label><input type="text" id="adjective"><br>
+        <label for="person">Someone's Name:</label><input type="text" id="person"><br>
+        <label for="verb">Verb:</label><input type="text" id="verb"><br>
+        <label for="place">A place:</label><input type="text" id="place"><br>
+        <button id="lib-button">Lib it!</button>
+    </form>
+    <button id="shuffle">Shuffle Story</button>
+
+    <p>Generated story: 
+    <span id="story"></span>
+    </p>
+
+    <script>
+        const form = document.getElementById("libform");
+const storySpan = document.getElementById("story");
+
+// inputs
+const noun = document.getElementById("noun");
+const adjective = document.getElementById("adjective");
+const person = document.getElementById("person");
+const verb = document.getElementById("verb");
+const place = document.getElementById("place");
+
+// store multiple story templates
+const stories = [
+    (n, a, p, v, pl) => `${p} went to ${pl} with a ${a} ${n} and decided to ${v} all day.`,
+    
+    (n, a, p, v, pl) => `In ${pl}, ${p} found a ${n} that was extremely ${a}, so they started to ${v}.`,
+    
+    (n, a, p, v, pl) => `One day, ${p} saw a ${a} ${n} in ${pl} and couldn’t stop themselves from trying to ${v}.`
+];
+
+// function to generate random story
+function generateStory() {
+    const n = noun.value.trim();
+    const a = adjective.value.trim();
+    const p = person.value.trim();
+    const v = verb.value.trim();
+    const pl = place.value.trim();
+
+    // validation
+    if (!n || !a || !p || !v || !pl) {
+        alert("Fill all fields bro 🚫");
+        return;
+    }
+
+    // pick random story
+    const randomIndex = Math.floor(Math.random() * stories.length);
+    const story = stories[randomIndex](n, a, p, v, pl);
+
+    storySpan.textContent = story;
+}
+
+// submit event
+form.addEventListener("submit", function (e) {
+    e.preventDefault(); // stops reload
+    generateStory();
+});
+      const shuffleBtn = document.getElementById("shuffle");
+
+shuffleBtn.addEventListener("click", () => {
+    generateStory(); // reuse same function
+});
+        
+    </script>
+
+ </body>
+</html>

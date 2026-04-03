@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form>  
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="firstname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lastname"><br><br>
+  <input type="submit" value="Submit" id="submit">
+</form> 
+<ul class="usersAnswer"></ul>
+   <script>
+    // 1. Get form
+const form = document.querySelector("form");
+console.log(form);
+
+// 2. Inputs by ID
+const fname = document.getElementById("fname");
+const lname = document.getElementById("lname");
+console.log(fname, lname);
+
+// 3. Inputs by name
+const firstNameInput = document.getElementsByName("firstname")[0];
+const lastNameInput = document.getElementsByName("lastname")[0];
+console.log(firstNameInput, lastNameInput);
+
+// 4. Submit event
+form.addEventListener("submit", (e) => {
+    e.preventDefault(); // prevents page reload
+
+    const first = fname.value.trim();
+    const last = lname.value.trim();
+
+    if (first === "" || last === "") {
+        alert("Fill in all fields");
+        return;
+    }
+
+    const ul = document.querySelector(".usersAnswer");
+    ul.innerHTML = ""; // clear previous
+
+    const li1 = document.createElement("li");
+    li1.textContent = first;
+
+    const li2 = document.createElement("li");
+    li2.textContent = last;
+
+    ul.appendChild(li1);
+    ul.appendChild(li2);
+});
+   </script> 
+</body>
+</html>
