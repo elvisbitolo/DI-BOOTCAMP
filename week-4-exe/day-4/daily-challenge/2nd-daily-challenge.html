@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Morse Challenge</title>
+</head>
+<body>
+
+<h2>Morse Translator</h2>
+<button onclick="runApp()">Run Translator</button>
+
+<script>
+const morse = `{
+  "0": "-----",
+  "1": ".----",
+  "2": "..---",
+  "3": "...--",
+  "4": "....-",
+  "5": ".....",
+  "6": "-....",
+  "7": "--...",
+  "8": "---..",
+  "9": "----.",
+  "a": ".-",
+  "b": "-...",
+  "c": "-.-.",
+  "d": "-..",
+  "e": ".",
+  "f": "..-.",
+  "g": "--.",
+  "h": "....",
+  "i": "..",
+  "j": ".---",
+  "k": "-.-",
+  "l": ".-..",
+  "m": "--",
+  "n": "-.",
+  "o": "---",
+  "p": ".--.",
+  "q": "--.-",
+  "r": ".-.",
+  "s": "...",
+  "t": "-",
+  "u": "..-",
+  "v": "...-",
+  "w": ".--",
+  "x": "-..-",
+  "y": "-.--",
+  "z": "--.."
+}`;
+
+// 1. Convert JSON string → JS object
+function toJs() {
+  return new Promise((resolve, reject) => {
+    const morseJS = JSON.parse(morse);
+
+    if (Object.keys(morseJS).length === 0) {
+      reject("Morse object is empty");
+    } else {
+      resolve(morseJS);
+    }
+  });
+}
+
+// 2. Convert user input → morse
+function toMorse(morseJS) {
+  return new Promise((resolve, reject) => {
+    const input = prompt("Enter a word or sentence:").toLowerCase();
+
+    const result = [];
+
+    for (let char of input) {
+      if (!morseJS[char]) {
+        reject(`Character "${char}" not in morse dictionary`);
+        return;
+      }
+      result.push(morseJS[char]);
+    }
+
+    resolve(result);
+  });
+}
+
+// 3. Display on page
+function joinWords(morseTranslation) {
+  const container = document.createElement("div");
+
+  morseTranslation.forEach(code => {
+    const p = document.createElement("p");
+    p.textContent = code;
+    container.appendChild(p);
+  });
+
+  document.body.appendChild(container);
+}
+
+// 4. Chain everything
+function runApp() {
+  toJs()
+    .then(morseJS => toMorse(morseJS))
+    .then(result => {
+      console.log(result);
+      joinWords(result);
+    })
+    .catch(err => console.log(err));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giphy App</title>
+</head>
+<body>
+
+  <h1>Giphy Fetch Practice</h1>
+
+  <script>
+    const url = "https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
+
+fetch(url)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Something went wrong");
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+  </script>
+</body>
+</html>
