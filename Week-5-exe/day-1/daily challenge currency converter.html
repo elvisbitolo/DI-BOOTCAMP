@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    select, input, button {
+      margin: 10px;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Currency Converter</h1>
+
+  <input type="number" id="amount" placeholder="Enter amount">
+
+  <div>
+    <div id="from"></div>
+    <button id="switch">⇄</button>
+    <div id="to"></div>
+  </div>
+
+  <button id="convert">Convert</button>
+
+  <h2 id="result"></h2>
+
+  <script>
+    const fromSelect = document.getElementById("from");
+    const toSelect = document.getElementById("to");
+    const amountInput = document.getElementById("amount");
+    const result = document.getElementById("result");
+    const switchBtn = document.getElementById("switch");
+
+    const API_KEY = "YOUR_API_KEY";
+
+    const loadCurrencies = async () => {
+      const res = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/codes`);
+      const data = await res.json();
+
+      data.supported_codes.forEach(currency => {
+        const option1 = document.createElement("option");
+        const option2 = document.createElement("option");
+
+        option1.value = option2.value = currency[0];
+        option1.textContent = option2.textContent = currency[0];
+
+        fromSelect.appendChild(option1);
+        toSelect.appendChild(option2);
+      });
+    };
+
+    const convertCurrency = async () => {
+      const from = fromSelect.value;
+      const to = toSelect.value;
+      const amount = amountInput.value;
+
+      const res = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${from}/${to}/${amount}`);
+      const data = await res.json();
+
+      result.textContent = `${amount} ${from} = ${data.conversion_result} ${to}`;
+    };
+
+    switchBtn.addEventListener("click", () => {
+      const temp = fromSelect.value;
+      fromSelect.value = toSelect.value;
+      toSelect.value = temp;
+    });
+
+    document.getElementById("convert").addEventListener("click", convertCurrency);
+
+    loadCurrencies();
+  </script>
+
+</body>
+</html>
