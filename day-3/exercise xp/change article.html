@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<article id="article">
+    <h1> Some Facts </h1>
+    <h2> The Chocolate </h2>
+    <h3> History of the chocolate </h3>
+    <p>Chocolate is made from tropical Theobroma cacao tree seeds.</p>
+    <p>After the European discovery of the Americas...</p>
+    <p>Chocolate has since become a popular food product...</p>
+    <p>But what effect does eating chocolate have on our health?</p> 
+</article>
+
+<button id="boldBtn">Make Bold</button>
+<script>
+    // 1. Retrieve h1
+const h1 = document.querySelector("h1");
+console.log(h1);
+
+// 2. Remove last paragraph
+const article = document.querySelector("#article");
+article.lastElementChild.remove();
+
+// 3. h2 click → background red
+const h2 = document.querySelector("h2");
+h2.addEventListener("click", () => {
+    h2.style.backgroundColor = "red";
+});
+
+// 4. h3 click → hide
+const h3 = document.querySelector("h3");
+h3.addEventListener("click", () => {
+    h3.style.display = "none";
+});
+
+// 5. Button → make all paragraphs bold
+document.getElementById("boldBtn").addEventListener("click", () => {
+    const paragraphs = document.querySelectorAll("p");
+    paragraphs.forEach(p => {
+        p.style.fontWeight = "bold";
+    });
+});
+
+// BONUS 1: random font size on h1 hover
+h1.addEventListener("mouseover", () => {
+    const randomSize = Math.floor(Math.random() * 100);
+    h1.style.fontSize = randomSize + "px";
+});
+
+// BONUS 2: fade out 2nd paragraph
+const secondPara = document.querySelectorAll("p")[1];
+secondPara.addEventListener("mouseover", () => {
+    secondPara.style.transition = "opacity 0.5s";
+    secondPara.style.opacity = "0";
+});
+</script>
+</body>
+</html>

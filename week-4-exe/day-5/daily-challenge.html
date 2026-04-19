@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GIF Finder</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    .gif-container {
+      margin-top: 20px;
+    }
+
+    .gif-box {
+      margin: 10px 0;
+    }
+
+    img {
+      width: 250px;
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>GIF Search App</h2>
+
+<form id="gifForm">
+  <input type="text" id="searchInput" placeholder="Search GIF (e.g sun)">
+  <button type="submit">Get GIF</button>
+</form>
+
+<button id="deleteAll">DELETE ALL</button>
+
+<div id="gifContainer" class="gif-container"></div>
+
+<script>
+const API_KEY = "hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
+const gifContainer = document.getElementById("gifContainer");
+
+// FETCH GIF
+async function fetchGif(query) {
+  try {
+    const res = await fetch(
+      `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${query}`
+    );
+
+    const data = await res.json();
+
+    const gifUrl = data.data.images.original.url;
+
+    displayGif(gifUrl);
+
+  } catch (error) {
+    console.log("Error fetching GIF:", error);
+  }
+}
+
+// DISPLAY GIF
+function displayGif(url) {
+  const div = document.createElement("div");
+  div.classList.add("gif-box");
+
+  const img = document.createElement("img");
+  img.src = url;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "DELETE";
+
+  deleteBtn.addEventListener("click", () => {
+    div.remove();
+  });
+
+  div.appendChild(img);
+  div.appendChild(deleteBtn);
+
+  gifContainer.appendChild(div);
+}
+
+// FORM SUBMIT
+document.getElementById("gifForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const input = document.getElementById("searchInput").value;
+
+  if (input.trim() !== "") {
+    fetchGif(input);
+  }
+});
+
+// DELETE ALL
+document.getElementById("deleteAll").addEventListener("click", () => {
+  gifContainer.innerHTML = "";
+});
+</script>
+
+</body>
+</html>

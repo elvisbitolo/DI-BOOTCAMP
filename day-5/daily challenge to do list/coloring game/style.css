@@ -1,0 +1,38 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+/* Color palette */
+.colors {
+  display: grid;
+  grid-template-columns: repeat(8, 40px);
+  gap: 10px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.color {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid white;
+}
+
+/* Drawing grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(20, 25px);
+  gap: 2px;
+  justify-content: center;
+}
+
+.cell {
+  width: 25px;
+  height: 25px;
+  background: white;
+  cursor: pointer;
+}

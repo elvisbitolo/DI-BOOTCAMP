@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">Users:</div>
+    <ul class="list">
+          <li>John</li>
+          <li>Pete</li>
+    </ul>
+    <ul class="list">
+         <li>David</li>
+         <li>Sarah</li>
+         <li>Dan</li>
+    </ul>
+    <script>
+   // 1. Retrieve the div
+const container = document.getElementById("container");
+console.log(container);
+
+// 2. Change Pete to Richard
+const lists = document.querySelectorAll(".list");
+lists[0].children[1].textContent = "Richard";
+
+// 3. Delete second li of second ul
+lists[1].children[1].remove();
+
+// 4. Change first li of each ul to your name
+for (let list of lists) {
+    list.children[0].textContent = "YourName";
+    list.classList.add("student_list");
+}
+
+// Classes and Styles
+lists[0].classList.add("university", "attendance");
+container.style.backgroundColor = "lightblue";
+container.style.padding = "10px";
+
+// Hide Dan (Specific logic: find 'Dan' then hide)
+const allLis = document.querySelectorAll("li");
+allLis.forEach(li => {
+    if (li.textContent === "Dan") li.style.display = "none";
+    if (li.textContent === "Richard") li.style.border = "1px solid black";
+});
+
+document.body.style.fontSize = "18px";
+</script> 
+</body>
+</html>
