@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h2>SmartFare Dashboard</h2>
+  <nav>
+    <a href="history.html">History</a>
+    <button onclick="logout()">Logout</button>
+  </nav>
+</header>
+
+<div class="container">
+
+  <!-- FULL WIDTH MAP -->
+  <div class="map-section">
+    <iframe id="map"
+      src="https://maps.google.com/maps?q=Nairobi&output=embed">
+    </iframe>
+  </div>
+
+  <!-- GRID CARDS -->
+  <div class="grid">
+
+    <div class="card">
+      <h3>Route Prediction</h3>
+      <input id="from" placeholder="From (e.g CBD)">
+      <input id="to" placeholder="To (e.g Westlands)">
+      <button onclick="predict()">Predict Price</button>
+      <div id="result"></div>
+    </div>
+
+    <div class="card">
+      <h3>Booking</h3>
+      <button onclick="bookRide()">Book Ride</button>
+      <div id="bookingStatus"></div>
+
+      <div id="driverInfo"></div>
+
+      <button id="payBtn" style="display:none;" onclick="payDriver()">Pay via M-Pesa</button>
+      <div id="paymentStatus"></div>
+    </div>
+
+    <div class="card">
+      <h3>AI Assistant</h3>
+      <div id="chat"></div>
+      <input id="chatInput" placeholder="Ask about fare or transport...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

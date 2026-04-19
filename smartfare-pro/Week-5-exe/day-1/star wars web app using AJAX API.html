@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Wars App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: black;
+      color: white;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .card {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Star Wars Character</h1>
+  <button id="btn">Get Character</button>
+
+  <div id="content" class="card"></div>
+
+  <script>
+      const btn = document.getElementById("btn");
+const content = document.getElementById("content");
+
+const getRandomId = () => Math.floor(Math.random() * 83) + 1;
+
+const showLoading = () => {
+  content.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Loading...`;
+};
+
+const showError = () => {
+  content.innerHTML = `<p>Oh no! That person isn't available.</p>`;
+};
+
+const displayCharacter = (data, homeworld) => {
+  content.innerHTML = `
+    <h2>${data.name}</h2>
+    <p>Height: ${data.height}</p>
+    <p>Gender: ${data.gender}</p>
+    <p>Birth Year: ${data.birth_year}</p>
+    <p>Home World: ${homeworld}</p>
+  `;
+};
+
+const fetchCharacter = async () => {
+  try {
+    showLoading();
+
+    const id = getRandomId();
+    const res = await fetch(`https://www.swapi.tech/api/people/${id}`);
+    const data = await res.json();
+
+    const character = data.result.properties;
+
+    const homeRes = await fetch(character.homeworld);
+    const homeData = await homeRes.json();
+
+    displayCharacter(character, homeData.result.properties.name);
+
+  } catch (error) {
+    showError();
+  }
+};
+
+btn.addEventListener("click", fetchCharacter);
+  </script>
+</body>
+</html>

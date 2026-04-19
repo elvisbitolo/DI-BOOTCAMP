@@ -1,0 +1,29 @@
+import json
+
+sampleJson = """{ 
+   "company":{ 
+      "employee":{ 
+         "name":"emma",
+         "payable":{ 
+            "salary":7000,
+            "bonus":800
+         }
+      }
+   }
+}"""
+
+# Step 1: Load JSON
+data = json.loads(sampleJson)
+
+# Step 2: Access salary
+salary = data["company"]["employee"]["payable"]["salary"]
+print("Salary:", salary)
+
+# Step 3: Add birth_date
+data["company"]["employee"]["birth_date"] = "1995-06-15"
+
+# Step 4: Save to file
+with open("modified_data.json", "w") as file:
+    json.dump(data, file, indent=4)
+
+print("JSON updated and saved to modified_data.json")

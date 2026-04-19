@@ -1,0 +1,34 @@
+ EXERCISE 1 — QUIZ ANSWERS
+1. What is a class?
+
+A blueprint/template for creating objects.
+
+2. What is an instance?
+
+A real object created from a class.
+
+3. What is encapsulation?
+
+Wrapping data + methods inside a class and restricting direct access.
+
+
+4. What is abstraction?
+
+Hiding internal complexity and showing only what’s necessary.
+
+5. What is inheritance?
+
+When a class gets properties/methods from another class.
+
+6. What is multiple inheritance?
+
+When a class inherits from more than one parent class.
+
+
+7. What is polymorphism?
+
+Same method name behaving differently in different classes.
+
+8. What is MRO (Method Resolution Order)?
+
+The order Python follows to find methods in multiple inheritance.
