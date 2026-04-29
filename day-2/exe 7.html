@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="listBooks"></section>
+    <script>
+        const allBooks = [
+    { title: "The Hobbit", author: "J.R.R. Tolkien", image: "https://images.thenile.io/r1000/9780007458424.jpg", alreadyRead: true },
+    { title: "1984", author: "George Orwell", image: "https://retrobookcovers.com/wp-content/uploads/2019/03/orwell-1984-03.jpg", alreadyRead: false }
+];
+
+const section = document.querySelector(".listBooks");
+
+allBooks.forEach(book => {
+    const div = document.createElement("div");
+    const info = document.createElement("p");
+    info.textContent = `${book.title} written by ${book.author}`;
+    
+    const img = document.createElement("img");
+    img.src = book.image;
+    img.style.width = "100px";
+
+    if (book.alreadyRead) {
+        info.style.color = "red";
+    }
+
+    div.appendChild(info);
+    div.appendChild(img);
+    section.appendChild(div);
+});
+    </script>
+    
+</body>
+</html>
