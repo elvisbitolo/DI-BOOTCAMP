@@ -12,6 +12,7 @@ const userRoutes = require('./routes/users-supabase');
 const orderRoutes = require('./routes/orders-supabase');
 const chatRoutes = require('./routes/chats-supabase');
 const ratingRoutes = require('./routes/ratings');
+const googleAuthRoutes = require('./routes/google-auth');
 const EmailService = require('./services/emailService');
 
 // Initialize Supabase client
@@ -89,6 +90,7 @@ app.set('io', io);
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/auth/google', googleAuthRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/chats', chatRoutes);
