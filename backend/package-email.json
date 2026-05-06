@@ -1,0 +1,28 @@
+{
+  "name": "gikomba-delivery-backend",
+  "version": "1.0.0",
+  "description": "Backend for Gikomba Delivery System with email notifications",
+  "main": "server-supabase.js",
+  "scripts": {
+    "start": "node server-supabase.js",
+    "dev": "nodemon server-supabase.js",
+    "start:supabase": "node server-supabase.js",
+    "dev:supabase": "nodemon server-supabase.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "express-rate-limit": "^6.7.0",
+    "socket.io": "^4.7.2",
+    "@supabase/supabase-js": "^2.26.0",
+    "jsonwebtoken": "^9.0.0",
+    "express-validator": "^6.15.0",
+    "bcryptjs": "^2.4.3",
+    "nodemailer": "^6.9.4",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
