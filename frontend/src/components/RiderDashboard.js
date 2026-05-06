@@ -167,8 +167,10 @@ const RiderDashboard = () => {
           orderTime: new Date().toISOString()
         }
       ];
+      
+      setAvailableOrders(mockOrders);
     } catch (error) {
-      console.error('Error fetching my orders:', error);
+      console.error('Error fetching available orders:', error);
     }
   };
 
@@ -228,6 +230,57 @@ const RiderDashboard = () => {
     } catch (error) {
       console.error('Error updating status:', error);
       alert('Failed to update status');
+    }
+  };
+
+  const loadMyOrders = async () => {
+    try {
+      const userData = JSON.parse(localStorage.getItem('user'));
+      
+      if (!userData) {
+        console.error('User not logged in');
+        setMyOrders([]);
+        return;
+      }
+
+      // TODO: Replace with actual Supabase call
+      const mockOrders = [
+        {
+          id: 'my-order-1',
+          orderNumber: 'ORD-101',
+          seller: { name: 'John Seller', businessName: 'Gikomba Electronics' },
+          pickupLocation: { address: 'Gikomba Market, Nairobi' },
+          deliveryLocation: { address: 'Thika Road Mall' },
+          packageDescription: 'Electronic items',
+          packageWeight: 5.5,
+          deliveryFee: 800,
+          distance: 12.5,
+          estimatedDeliveryTime: new Date(Date.now() + 45 * 60000).toISOString(),
+          orderTime: new Date().toISOString(),
+          status: 'delivered'
+        },
+        {
+          id: 'my-order-2',
+          orderNumber: 'ORD-102',
+          seller: { name: 'Mary Trader', businessName: 'Fashion Hub' },
+          pickupLocation: { address: 'Gikomba Market, Nairobi' },
+          deliveryLocation: { address: 'Kenyatta Avenue' },
+          packageDescription: 'Clothing items',
+          packageWeight: 3.2,
+          deliveryFee: 600,
+          distance: 8.3,
+          estimatedDeliveryTime: new Date(Date.now() + 30 * 60000).toISOString(),
+          orderTime: new Date().toISOString(),
+          status: 'in_transit'
+        }
+      ];
+      
+      setMyOrders(mockOrders);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching my orders:', error);
+      setMyOrders([]);
+      setLoading(false);
     }
   };
 

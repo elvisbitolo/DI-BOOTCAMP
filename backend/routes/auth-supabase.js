@@ -76,7 +76,7 @@ router.post('/forgot-password', [
       res.status(500).json({ error: 'Server error' });
     }
   }
-});
+);
 
 // @route   POST /api/auth/reset-password
 // @desc    Reset password with token
@@ -145,41 +145,7 @@ router.post('/reset-password', [
       await emailService.sendEmail(
         resetData.email,
         'Password Reset Successful - Delivery System',
-        `
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Password Reset Successful - Delivery System</title>
-            <style>
-              body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-              .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-              .header { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
-              .button { display: inline-block; background: #22c55e; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
-              .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
-            </style>
-          </head>
-          <body>
-            <div class="container">
-              <div class="header">
-                <h1>✅ Password Reset Successful</h1>
-                <p>Delivery System</p>
-              </div>
-              
-              <p>Your password has been successfully reset!</p>
-              <p>You can now log in with your new password.</p>
-              
-              <a href="${process.env.FRONTEND_URL}/login" class="button">Log In Now</a>
-              
-              <div class="footer">
-                <p>&copy; 2024 Delivery System. All rights reserved.</p>
-                <p>This is an automated message. Please do not reply to this email.</p>
-              </div>
-            </div>
-          </body>
-          </html>
-        `
+        getPasswordResetSuccessTemplate()
       );
 
       res.json({
@@ -190,8 +156,7 @@ router.post('/reset-password', [
       res.status(500).json({ error: 'Server error' });
     }
   }
-});
+);
 
-const googleAuthRoutes = require('./google-auth');
 module.exports = router;
-module.exports.googleAuth = googleAuthRoutes;
+module.exports.googleAuth = require('./google-auth');
