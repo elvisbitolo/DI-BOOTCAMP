@@ -1,17 +1,17 @@
-# 🚚 Gikomba Delivery System
+#  Gikomba Delivery System
 
 A modern, real-time delivery management platform built with React, Node.js, and Supabase. Connects sellers with riders for efficient package delivery across Nairobi.
 
-## 🌟 Features
+##  Features
 
-### 🏪 For Sellers
+###  For Sellers
 - **Real-time Order Management**: Create and track deliveries instantly
 - **Live Rider Tracking**: See available riders in your area
 - **Direct Communication**: Chat with riders in real-time
 - **Email Notifications**: Get updates for order status changes
 - **Order History**: View all past and current deliveries
 
-### 🏍️ For Riders
+###  For Riders
 - **Flexible Vehicle Options**: Choose between motorcycle or car delivery
 - **Area-based Service**: Define your service coverage area
 - **Real-time Order Alerts**: Get notified of new delivery requests
@@ -27,7 +27,7 @@ A modern, real-time delivery management platform built with React, Node.js, and 
 - **Data Validation**: Strict input validation for user safety
 - **Row-level Security**: Users can only access their own data
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Frontend
 - **React 18** - Modern UI framework
@@ -52,7 +52,7 @@ A modern, real-time delivery management platform built with React, Node.js, and 
 - **Row Level Security** - Data protection
 - **Storage Buckets** - File management
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js 16+ 
@@ -134,7 +134,7 @@ npm start
 ```
 Frontend runs on `http://localhost:3000`
 
-## 📱 Usage Guide
+##  Usage Guide
 
 ### For Sellers
 1. **Sign Up**: Create an account with your business details
@@ -149,7 +149,7 @@ Frontend runs on `http://localhost:3000`
 4. **Accept Orders**: Start earning by delivering packages
 5. **Track Progress**: Update order status in real-time
 
-## 🔄 Real-time Features
+##  Real-time Features
 
 ### Live Order Updates
 - Orders appear instantly for online riders
@@ -167,7 +167,7 @@ Frontend runs on `http://localhost:3000`
 - Real-time availability updates
 - Last seen timestamps
 
-## 📧 Email Notifications
+##  Email Notifications
 
 The system automatically sends emails for:
 
@@ -181,7 +181,7 @@ The system automatically sends emails for:
 - **Order Delivered**: When deliveries are completed
 - **New Order Alert**: When new orders are available (riders)
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 gikomba-delivery-system/
@@ -204,7 +204,7 @@ gikomba-delivery-system/
     └── EMAIL_SETUP.md    # Email configuration
 ```
 
-## 🔐 Security Features
+##  Security Features
 
 ### Authentication
 - JWT-based secure authentication
@@ -223,7 +223,7 @@ gikomba-delivery-system/
 - Email sending limits
 - Login attempt restrictions
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing
 1. **User Registration**: Test both seller and rider signup
@@ -243,7 +243,7 @@ curl -X POST http://localhost:5000/api/auth/login \
   -d '{"email":"test@example.com","password":"password","userType":"seller"}'
 ```
 
-## 🚀 Deployment
+##  Deployment
 
 ### Environment Setup
 1. **Production Database**: Configure production Supabase project
@@ -257,7 +257,7 @@ curl -X POST http://localhost:5000/api/auth/login \
 - **DigitalOcean**: Custom server deployment
 - **AWS**: Enterprise deployment
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -265,11 +265,11 @@ curl -X POST http://localhost:5000/api/auth/login \
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **Supabase** - Database and authentication platform
 - **React** - UI framework
@@ -277,15 +277,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Lucide** - Icon library
 - **Tailwind CSS** - Styling framework
 
-## 📞 Support
+##  Support
 
 For support and questions:
 
-- 📧 Email: elvisbitolo11@gmail.com
-- 🐛 Issues: [GitHub Issues](https://github.com/elvidbitolo/DI_BOOTCAMP/issues)
-- 📖 Documentation: [Complete Setup Guide](COMPLETE_SETUP.md)
+-📧 Email: elvisbitolo11@gmail.com
+-  Issues: [GitHub Issues](https://github.com/elvidbitolo/DI_BOOTCAMP/issues)
+-  Documentation: [Complete Setup Guide](COMPLETE_SETUP.md)
 
-## 🎯 Roadmap
+## Roadmap
 
 ### Upcoming Features
 - [ ] Mobile app development
@@ -303,6 +303,3 @@ For support and questions:
 - [ ] Database optimization
 - [ ] CDN integration
 
----
-
-**Built with ❤️ for the Nairobi delivery ecosystem**
